@@ -1,0 +1,20 @@
+version: "3.8"
+
+networks:
+    wiki-db:
+        name: postgres
+        external: true
+    wiki:
+        name: wiki
+
+services:
+    wiki:
+        image: requarks/wiki:2.5
+        env_file:
+            - .env
+        networks:
+            - wiki
+            - wiki-db
+        ports:
+            - 3000:3000
+

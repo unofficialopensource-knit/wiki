@@ -9,7 +9,9 @@ networks:
 
 services:
     wiki:
-        image: requarks/wiki:2.5
+        image: wiki:development
+        build:
+            context: .
         env_file:
             - .env
         networks:
